@@ -22,7 +22,15 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    @updated_user = @user.update!(user_params)
+
+    if @updated_user.save!
+      render json: { data: @updated_user, message: 'user updated successfully!' }
+    else
+      render json: { error: @updated_user, status: 422 }
+    end
+  end
 
   def destroy
     @action = @user.destroy
