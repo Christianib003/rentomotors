@@ -1,40 +1,47 @@
 class Api::V1::UsersController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :set_user, only: %i[show update destroy]
 
   def index
     @users = User.all
 
-    render json: {status: 200, data: @users}
+    render json: { status: 200, data: @users }
   end
 
   def show
+    render json: { user: @user, status: 201 }
   end
 
   def create
-    @user = User.new
+    @user = User.new(user_params)
+    @user.password = 'password'
 
-    @user.name = params[:name]
-    @user.username = params[:username]
-    @user.password = params[:password]
-    @user.email = params[:email]
-
-      if @user.save
-        render json: { status: 201, message: 'user created successfully', data: @user }
-      else
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      render json: { status: 201, message: 'user created successfully', data: @user }
+    else
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
   end
 
-  def update
-  end
+  def update; end
 
   def destroy
+    @action = @user.destroy
+
+    if @action
+      render json: { message: 'User Deleted!' }
+    else
+      render json: { message: action.errors, status: :unprocessable_entity }
+    end
   end
 
-  # private
+  private
 
-  # # Only allow a list of trusted parameters through.
-  # def user_params
-  #   params.require(:user).permit(:name, :username, :password, :email)
-  # end
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:name, :username, :password, :email)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
