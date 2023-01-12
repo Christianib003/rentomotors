@@ -10,7 +10,11 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def show
-    render json: { car: @car, status: 201 }
+    if @car
+      render json: { car: @car, status: 201 }
+    else
+      render json: { error: @car.errors.full_messages, status: 402 }
+    end
   end
 
   def create
@@ -23,7 +27,16 @@ class Api::V1::CarsController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    @updated_car = @car.update!(car_params)
+
+    if @updated_car
+      render json: { data: @updated_car, message: 'car updated successfully!' }
+    else
+      render json: { error: @updated_car, status: 422 }
+    end
+  end
+
 
   def destroy
     @action = @car.destroy
@@ -38,7 +51,7 @@ class Api::V1::CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:brand, :model, :release_year, :color, :transmission, :seats, :wheel_drive, :price)
+    params.require(:car).permit(:user_id, :brand, :model, :release_year, :color, :transmission, :seats, :wheel_drive, :price)
   end
 
   def set_car
