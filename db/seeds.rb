@@ -1,9 +1,9 @@
-# User.create!(
-#   username: 'christiano',
-#   password: 'password',
-#   email: 'chris@home.com',
-#   name: 'christian'
-# )
+User.create!(
+  username: 'christiano',
+  password: 'password',
+  email: 'chris@home.com',
+  name: 'christian'
+)
 
 
 4.times do |i|
@@ -17,5 +17,11 @@
     seats: 6,
     wheel_drive: 'four-wheel',
     price: 30000
+  )
+end
+
+4.times do |i|
+  Reservation.create!(
+    date: Date.new, reserved_from: Date.new, reserved_until: Date.new, user: User.first, car: Car.first
   )
 end
