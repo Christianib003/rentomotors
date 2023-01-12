@@ -1,0 +1,51 @@
+class Api::V1::CarsController < ApplicationController
+  before_action :set_car, only: %i[show update destroy]
+  before_action :set_user, only: %i[show update destroy]
+
+
+  def index
+    @cars = Car.all
+
+    render json: { status: 200, data: @cars }
+  end
+
+  def show
+    render json: { car: @car, status: 201 }
+  end
+
+  def create
+    @car = Car.new(car_params)
+
+    if @car.save
+      render json: { status: 201, message: 'car created successfully', data: @car }
+    else
+      render json: { error: @car.errors.full_messages, status: 402 }
+    end
+  end
+
+  def update; end
+
+  def destroy
+    @action = @car.destroy
+
+    if @action
+      render json: { message: 'car Deleted!' }
+    else
+      render json: { message: action.errors, status: :unprocessable_entity }
+    end
+  end
+
+  private
+
+  def car_params
+    params.require(:car).permit(:brand, :model, :release_year, :color, :transmission, :seats, :wheel_drive, :price)
+  end
+
+  def set_car
+    @car = Car.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+end
