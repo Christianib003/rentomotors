@@ -37,7 +37,6 @@ class Api::V1::CarsController < ApplicationController
     end
   end
 
-
   def destroy
     @action = @car.destroy
 
@@ -51,7 +50,8 @@ class Api::V1::CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:user_id, :brand, :model, :release_year, :color, :transmission, :seats, :wheel_drive, :price)
+    params.require(:car).permit(:user_id, :brand, :model, :release_year, :color, :transmission, :seats, :wheel_drive,
+                                :price)
   end
 
   def set_car
