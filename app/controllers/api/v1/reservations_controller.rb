@@ -14,6 +14,10 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.date = Date.new
+    @reservation.reserved_from = Date.new
+    @reservation.user = User.find(params[:user_id])
+    @reservation.car = Car.find(params[:car_id])
 
     if @reservation.save
       render json: { status: 201, message: 'resevation created successfully', data: @reservation }
@@ -38,11 +42,11 @@ class Api::V1::ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:date, :reseved_at, :reserved_until)
+    params.require(:reservation).permit(:date, :reseved_at, :reserved_until, :user_id, :car_id)
   end
 
   def set_user
-    @user = current_user
+    @user = User.find(params[:user_id])
   end
 
   def set_reservation
