@@ -1,10 +1,15 @@
 class Api::V1::CarsController < ApplicationController
   before_action :set_car, only: %i[show update destroy]
-  before_action :set_user, only: %i[show update destroy]
+  before_action :set_user, only: %i[index show update destroy]
 
   def index
-    @cars = Car.all
+    @cars = @user.cars
 
+    render json: { status: 200, data: @cars }
+  end
+
+  def all_cars
+    @cars = Car.all
     render json: { status: 200, data: @cars }
   end
 
@@ -58,6 +63,6 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = User.includes(:cars).find(params[:user_id])
   end
 end
