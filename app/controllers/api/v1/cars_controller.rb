@@ -9,7 +9,6 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def all_cars
->>>>>>> Stashed changes
     @cars = Car.all
 
     render json: { status: 200, data: @cars }
@@ -65,10 +64,6 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def set_user
-<<<<<<< Updated upstream
-    @user = User.find(params[:user_id])
-=======
     @user = User.includes(:cars).find(params[:user_id])
->>>>>>> Stashed changes
   end
 end
