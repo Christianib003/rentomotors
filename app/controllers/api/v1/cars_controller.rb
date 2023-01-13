@@ -10,7 +10,7 @@ class Api::V1::CarsController < ApplicationController
 
   def all_cars
     @cars = Car.all
-    render json: { status: 200, data: @cars}
+    render json: { status: 200, data: @cars }
   end
 
   def show
