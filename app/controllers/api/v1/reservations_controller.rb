@@ -1,9 +1,9 @@
 class Api::V1::ReservationsController < ApplicationController
-  before_action :set_user, only: %i[show update destroy]
+  before_action :set_user, only: %i[index show update destroy]
   before_action :set_reservation, only: %i[show update destroy]
 
   def index
-    @reservations = Reservation.all
+    @reservations = @user.reservations
 
     render json: { status: 200, data: @reservations }
   end
