@@ -1,4 +1,8 @@
 class Api::V1::CarsController < ApplicationController
+
+  objects_to_display= Object.all
+  paginate  objects_to_display, per_page: 20
+
   before_action :set_car, only: %i[show update destroy]
   before_action :set_user, only: %i[show update destroy]
 

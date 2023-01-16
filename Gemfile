@@ -48,3 +48,6 @@ end
 
 gem 'devise'
 gem 'rubocop'
+gem 'kaminari' 
+gem 'pager_api'
+gem 'active_model_serializers'
