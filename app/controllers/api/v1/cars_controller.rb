@@ -3,7 +3,7 @@ class Api::V1::CarsController < ApplicationController
   before_action :set_user, only: %i[index show update destroy]
 
   def index
-    @cars = @user.cars
+    @cars = @user.cars.page params[:page]
 
     render json: { status: 200, data: @cars }
   end

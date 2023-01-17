@@ -48,3 +48,4 @@ end
 
 gem 'devise'
 gem 'rubocop'
+gem 'kaminari'
