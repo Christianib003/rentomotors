@@ -9,6 +9,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.integer :seats
       t.string :wheel_drive
       t.integer :price
+      t.string :image_link
 
       t.timestamps
     end

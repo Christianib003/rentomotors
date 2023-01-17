@@ -29,12 +29,12 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  # username: chris
-  username: habib
+  username: chris
+  # username: habib
 
   # The password associated with the postgres role (username).
-  # password: password
-  password: iwdmb
+  password: password
+  # password: iwdmb
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -60,10 +60,10 @@ development:
 test:
   <<: *default
   database: capstone_backend_test
-  # username: chris
-  username: habib
-  # password: password
-  password: iwdmb
+  username: chris
+  # username: habib
+  password: password
+  # password: iwdmb
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
