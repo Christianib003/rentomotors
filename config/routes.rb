@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'cars', to: 'cars#all_cars'
+      get 'users/login', to: 'users#login'
       resources :users, except: [:new] do
         resources :cars
         resources :reservations
