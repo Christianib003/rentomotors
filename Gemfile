@@ -47,4 +47,5 @@ group :development do
 end
 
 gem 'devise'
+gem 'kaminari'
 gem 'rubocop'
