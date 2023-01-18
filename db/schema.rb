@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_090151) do
     t.integer "seats"
     t.string "wheel_drive"
     t.integer "price"
+    t.string "image_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
