@@ -50,3 +50,4 @@ end
 gem 'devise'
 gem 'kaminari'
 gem 'rubocop'
+gem 'rswag'
