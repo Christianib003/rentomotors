@@ -1,10 +1,19 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: %i[show update destroy]
+  before_action :set_current_user, only: %i[login]
 
   def index
     @users = User.all
 
     render json: { status: 200, data: @users }
+  end
+
+  def login
+    if @current_user.length.positive?
+      render json: { user: @current_user, status: 201 }
+    else
+      render json: { error: "User with username: #{params[:username]} not found", status: 400 }
+    end
   end
 
   def show
@@ -51,5 +60,9 @@ class Api::V1::UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_current_user
+    @current_user = User.where(username: params[:username])
   end
 end
