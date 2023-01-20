@@ -28,3 +28,25 @@
 
 - [React Frontend of this app](https://github.com/zemola/final-capstone-front-end)
 - [Api Documentation](https://rento-api.onrender.com/api-docs/index.html)
+
+## 🛠 Built With <a name="built-with"></a>
+
+- Ruby
+- Rails
+- Gem
+- postgresql
+- rswag
+
+### Tech Stack <a name="tech-stack"></a>
+
+> Describe the tech stack and include only the relevant sections that apply to your project.
+
+</details>
+
+<details>
+```bash
+- Ruby
+- Rails
+- PostgreSQL
+```
+</details>
