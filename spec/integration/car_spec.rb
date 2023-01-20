@@ -115,7 +115,7 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
                 image_link: { type: :string },
                 user_id: { type: :integer }
                },
-               required: %w[id name image category date time description organizer location price user_id]
+               required: %w[id brand model release_year color transmission seats wheel_drive price user_id]
 
         let(:user_id) do
           User.create(username: 'User').id
@@ -123,7 +123,7 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
         run_test!
       end
 
-      response '404', 'event not found' do
+      response '404', 'car not found' do
         let(:user_id) { 'invalid' }
         run_test!
       end
