@@ -49,5 +49,6 @@ end
 
 gem 'devise'
 gem 'kaminari'
-gem 'rswag'gem 'rubocop'
+gem 'rswag'
+gem 'rubocop'
 
