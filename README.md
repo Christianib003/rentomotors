@@ -61,3 +61,37 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Prerequisites
+
+In order to run this project you need:
+
+ gem install rails
+
+
+### Setup
+
+Clone this repository to your desired folder:
+
+  cd my-folder
+  git clone https://github.com/Christianib003/capstone-backend.git
+
+### Install
+
+Install this project with:
+
+<!--
+Example command:
+
+```sh
+  cd blog-app
+  gem install
+```
+--->
+
+### Usage
+
+To run the project, execute the following command:
+
+ - `rails server`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
