@@ -32,4 +32,6 @@ RSpec.describe 'api/v1/reservations', type: :request do
       end
     end
   end
+
+  
 end
