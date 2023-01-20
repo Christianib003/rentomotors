@@ -128,3 +128,22 @@ To run the project, execute the following command:
 - **[CRUD]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Christianib003/capstone-backend/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+> leave a star if you enjoyed the project.
+
+If you like this project star the project and leave a star
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
