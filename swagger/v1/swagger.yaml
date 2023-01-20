@@ -271,6 +271,37 @@ paths:
               - reserved_until
               - user_id
               - car_id
+  api/v1/reservations:
+    get:
+      summary: Retrieves all reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservation found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  date:
+                    type: date
+                  reserved_from:
+                    type: date
+                  reserved_until:
+                    type: date
+                  user_id:
+                    type: integer
+                  car_id:
+                    type: integer
+                required:
+                - date
+                - reserved_from
+                - reserved_until
+                - user_id
+                - car_id
+        '404':
+          description: reservation not found
 servers:
 - url: https://{defaultHost}
   variables:
