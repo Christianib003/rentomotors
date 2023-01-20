@@ -95,4 +95,37 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
       end
     end
   end
+
+  path '/api/v1/cars' do
+    get 'Retrieves all cars' do
+      tags 'Cars'
+      produces 'application/json'
+      response '200', 'car found' do
+        schema type: :object,
+               properties: {
+                id: { type: :integer },
+                brand: { type: :string },
+                model: { type: :string },
+                release_year: { type: :integer },
+                color: { type: :string },
+                transmission: { type: :string },
+                price: { type: :integer },
+                seats: { type: :integer},
+                wheel_drive: { type: :string },
+                image_link: { type: :string },
+                user_id: { type: :integer }
+               },
+               required: %w[id name image category date time description organizer location price user_id]
+
+        let(:user_id) do
+          User.create(username: 'User').id
+        end
+        run_test!
+      end
+
+      response '404', 'event not found' do
+        let(:user_id) { 'invalid' }
+        run_test!
+      end
+    end
 end
