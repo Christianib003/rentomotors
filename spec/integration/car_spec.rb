@@ -18,11 +18,11 @@ describe 'Car API' do
           image_link: { type: :string },
           user_id: { type: :integer }
         },
-        required: %w[id name car_image bike_type description brand daily_rate user_id]
+        required: %w[id brand model release_year color transmission seats wheel_drive price user_id]
       }
-      response '201', 'CAr created' do
+      response '201', 'Car created' do
         let(:car) do
-          { name: 'AlusiA', bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+          { brand: 'AlusiA', bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
 r-2.jpeg?isig=0&q=80", bike_type: 'HNDA', description: 'Tption', brand: 'This Brand', daily_rate: '2000', user_id: 1 }
         end
         run_test!
