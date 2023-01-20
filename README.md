@@ -50,3 +50,14 @@
 - PostgreSQL
 ```
 </details>
+
+### Key Features <a name="key-features"></a>
+
+> A user can login into the app after being authorized.
+> A user can see add and delete cars.
+> A user can reserve on or many of the cars in the app.
+
+- **[MVC]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
