@@ -118,3 +118,13 @@ To run the project, execute the following command:
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/david-makoji-b6090971/)
 - LinkedIn: [LinkedIn](https://twitter.com/sharkleshevon)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+-  **[Authentication]**
+- **[CRUD]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
