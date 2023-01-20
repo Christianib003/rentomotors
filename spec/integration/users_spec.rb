@@ -11,7 +11,7 @@ RSpec.describe 'api/v1/users', type: :request do
           username: { type: :string },
           encrypted_password: { type: :string },
           email: { type: :string },
-          name: { type: :string },
+          name: { type: :string }
         },
         required: %w[username]
       }

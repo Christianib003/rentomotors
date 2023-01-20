@@ -13,7 +13,7 @@ describe 'Car API' do
           color: { type: :string },
           transmission: { type: :string },
           price: { type: :integer },
-          seats: { type: :integer},
+          seats: { type: :integer },
           wheel_drive: { type: :string },
           image_link: { type: :string },
           user_id: { type: :integer }
@@ -23,7 +23,7 @@ describe 'Car API' do
       response '201', 'Car created' do
         let(:car) do
           { brand: 'mercedes', image_link: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
-r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transmission: 'manual', seats: 6, wheel_drive: 'four-wheel', price: 20000, user_id: 1 }
+r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transmission: 'manual', seats: 6, wheel_drive: 'four-wheel', price: 20_000, user_id: 1 }
         end
         run_test!
       end
@@ -41,22 +41,22 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
       response '200', 'name found' do
         schema type: :object,
                properties: {
-                id: { type: :integer },
-                brand: { type: :string },
-                model: { type: :string },
-                release_year: { type: :integer },
-                color: { type: :string },
-                transmission: { type: :string },
-                price: { type: :integer },
-                seats: { type: :integer},
-                wheel_drive: { type: :string },
-                image_link: { type: :string },
-                user_id: { type: :integer }
+                 id: { type: :integer },
+                 brand: { type: :string },
+                 model: { type: :string },
+                 release_year: { type: :integer },
+                 color: { type: :string },
+                 transmission: { type: :string },
+                 price: { type: :integer },
+                 seats: { type: :integer },
+                 wheel_drive: { type: :string },
+                 image_link: { type: :string },
+                 user_id: { type: :integer }
                },
                required: %w[id brand model release_year color transmission seats wheel_drive price user_id]
         let(:id) do
           Car.create(brand: 'mercedes', image_link: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
-          r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transmission: 'manual', seats: 6, wheel_drive: 'four-wheel', price: 20000, user_id: 1).id
+          r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transmission: 'manual', seats: 6, wheel_drive: 'four-wheel', price: 20_000, user_id: 1).id
         end
         run_test!
       end
@@ -75,18 +75,19 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
       response '204', 'event deleted' do
         let(:id) do
           Event.create(
-          id: 1,
-          brand: 'vox',
-          model: 'wagen',
-          release_year: 2007,
-          color: 'grey',
-          transmission: 'manual',
-          price: 20000,
-          seats: 4,
-          wheel_drive: 'front', 
-          image_link: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+            id: 1,
+            brand: 'vox',
+            model: 'wagen',
+            release_year: 2007,
+            color: 'grey',
+            transmission: 'manual',
+            price: 20_000,
+            seats: 4,
+            wheel_drive: 'front',
+            image_link: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
           r-2.jpeg?isig=0&q=80",
-          user_id: 1).id
+            user_id: 1
+          ).id
         end
         let(:user_id) do
           User.create(username: 'User').id
@@ -103,17 +104,17 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
       response '200', 'car found' do
         schema type: :object,
                properties: {
-                id: { type: :integer },
-                brand: { type: :string },
-                model: { type: :string },
-                release_year: { type: :integer },
-                color: { type: :string },
-                transmission: { type: :string },
-                price: { type: :integer },
-                seats: { type: :integer},
-                wheel_drive: { type: :string },
-                image_link: { type: :string },
-                user_id: { type: :integer }
+                 id: { type: :integer },
+                 brand: { type: :string },
+                 model: { type: :string },
+                 release_year: { type: :integer },
+                 color: { type: :string },
+                 transmission: { type: :string },
+                 price: { type: :integer },
+                 seats: { type: :integer },
+                 wheel_drive: { type: :string },
+                 image_link: { type: :string },
+                 user_id: { type: :integer }
                },
                required: %w[id brand model release_year color transmission seats wheel_drive price user_id]
 

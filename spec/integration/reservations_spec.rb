@@ -20,7 +20,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
       response '201', 'reservation created' do
         let(:reservation) do
           {
-            date: 2023-01-01, reserved_from: 2023-01-01, reserved_until: 2023-01-02, user_id: 1, car_id: 1
+            date: 2023 - 0o1 - 0o1, reserved_from: 2023 - 0o1 - 0o1, reserved_until: 2023 - 0o1 - 0o2, user_id: 1, car_id: 1
           }
         end
         run_test!
@@ -40,16 +40,17 @@ RSpec.describe 'api/v1/reservations', type: :request do
       response '200', 'reservation found' do
         schema type: :object,
                properties: {
-                date: { type: :date },
-                reserved_from: { type: :date },
-                reserved_until: { type: :date },
-                user_id: { type: :integer },
-                car_id: { type: :integer }
+                 date: { type: :date },
+                 reserved_from: { type: :date },
+                 reserved_until: { type: :date },
+                 user_id: { type: :integer },
+                 car_id: { type: :integer }
                },
                required: %w[date reserved_from reserved_until user_id car_id]
 
         let(:id) do
-          Reservation.create(date: 2023-01-01, reserved_from: 2023-01-01, reserved_until: 2023-01-02, user_id: 1, car_id: 1).id
+          Reservation.create(date: 2023 - 0o1 - 0o1, reserved_from: 2023 - 0o1 - 0o1, reserved_until: 2023 - 0o1 - 0o2, user_id: 1,
+                             car_id: 1).id
         end
         run_test!
       end
@@ -60,7 +61,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
       end
     end
   end
-  
+
   path 'api/v1/reservations/{id}' do
     get 'Retrieves a reservation' do
       tags 'Reservations'
@@ -70,16 +71,17 @@ RSpec.describe 'api/v1/reservations', type: :request do
       response '200', 'reservation found' do
         schema type: :object,
                properties: {
-                date: { type: :date },
-                reserved_from: { type: :date },
-                reserved_until: { type: :date },
-                user_id: { type: :integer },
-                car_id: { type: :integer }
+                 date: { type: :date },
+                 reserved_from: { type: :date },
+                 reserved_until: { type: :date },
+                 user_id: { type: :integer },
+                 car_id: { type: :integer }
                },
                required: %w[date reserved_from reserved_until user_id car_id]
 
         let(:id) do
-          Reservation.create(date: 2023-01-01, reserved_from: 2023-01-01, reserved_until: 2023-01-02, user_id: 1, car_id: 1).id
+          Reservation.create(date: 2023 - 0o1 - 0o1, reserved_from: 2023 - 0o1 - 0o1, reserved_until: 2023 - 0o1 - 0o2, user_id: 1,
+                             car_id: 1).id
         end
         run_test!
       end
@@ -98,7 +100,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
 
       response '204', 'reservation deleted' do
         let(:id) do
-          Reservation.create(date: 2023-01-01, reserved_from: 2023-01-01, reserved_until: 2023-01-02, user_id: 1, car_id: 1).id
+          Reservation.create(date: 2023 - 0o1 - 0o1, reserved_from: 2023 - 0o1 - 0o1, reserved_until: 2023 - 0o1 - 0o2, user_id: 1,
+                             car_id: 1).id
         end
         run_test!
       end
