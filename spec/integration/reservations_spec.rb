@@ -33,5 +33,31 @@ RSpec.describe 'api/v1/reservations', type: :request do
     end
   end
 
-  
+  path 'api/v1/reservations' do
+    get 'Retrieves all reservations' do
+      tags 'Reservations'
+      produces 'application/json'
+      response '200', 'reservation found' do
+        schema type: :object,
+               properties: {
+                date: { type: :date },
+                reserved_from: { type: :date },
+                reserved_until: { type: :date },
+                user_id: { type: :integer },
+                car_id: { type: :integer }
+               },
+               required:%w[date reserved_from reserved_until user_id car_id]
+
+        let(:id) do
+          Reservation.create(date: 2023-01-01, reserved_from: 2023-01-01, reserved_until: 2023-01-02, user_id: 1, car_id: 1).id
+        end
+        run_test!
+      end
+
+      response '404', 'reservation not found' do
+        let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end  
 end
