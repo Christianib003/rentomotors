@@ -1,0 +1,395 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/cars":
+    post:
+      summary: Creates a car
+      tags:
+      - Cars
+      parameters: []
+      responses:
+        '201':
+          description: Car created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                model:
+                  type: string
+                release_year:
+                  type: integer
+                color:
+                  type: string
+                transmission:
+                  type: string
+                price:
+                  type: integer
+                seats:
+                  type: integer
+                wheel_drive:
+                  type: string
+                image_link:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - id
+              - brand
+              - model
+              - release_year
+              - color
+              - transmission
+              - seats
+              - wheel_drive
+              - price
+              - user_id
+          application/xml:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                model:
+                  type: string
+                release_year:
+                  type: integer
+                color:
+                  type: string
+                transmission:
+                  type: string
+                price:
+                  type: integer
+                seats:
+                  type: integer
+                wheel_drive:
+                  type: string
+                image_link:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - id
+              - brand
+              - model
+              - release_year
+              - color
+              - transmission
+              - seats
+              - wheel_drive
+              - price
+              - user_id
+    get:
+      summary: Retrieves all cars
+      tags:
+      - Cars
+      responses:
+        '200':
+          description: car found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  brand:
+                    type: string
+                  model:
+                    type: string
+                  release_year:
+                    type: integer
+                  color:
+                    type: string
+                  transmission:
+                    type: string
+                  price:
+                    type: integer
+                  seats:
+                    type: integer
+                  wheel_drive:
+                    type: string
+                  image_link:
+                    type: string
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - brand
+                - model
+                - release_year
+                - color
+                - transmission
+                - seats
+                - wheel_drive
+                - price
+                - user_id
+        '404':
+          description: car not found
+  "/api/v1/cars/{id}":
+    get:
+      summary: Retrieves a car
+      tags:
+      - Cars
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: name found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  brand:
+                    type: string
+                  model:
+                    type: string
+                  release_year:
+                    type: integer
+                  color:
+                    type: string
+                  transmission:
+                    type: string
+                  price:
+                    type: integer
+                  seats:
+                    type: integer
+                  wheel_drive:
+                    type: string
+                  image_link:
+                    type: string
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - brand
+                - model
+                - release_year
+                - color
+                - transmission
+                - seats
+                - wheel_drive
+                - price
+                - user_id
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  brand:
+                    type: string
+                  model:
+                    type: string
+                  release_year:
+                    type: integer
+                  color:
+                    type: string
+                  transmission:
+                    type: string
+                  price:
+                    type: integer
+                  seats:
+                    type: integer
+                  wheel_drive:
+                    type: string
+                  image_link:
+                    type: string
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - brand
+                - model
+                - release_year
+                - color
+                - transmission
+                - seats
+                - wheel_drive
+                - price
+                - user_id
+        '404':
+          description: car not found
+    delete:
+      summary: Deletes a car
+      tags:
+      - Cars
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: event deleted
+  reserves/:
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: date
+                reserved_from:
+                  type: date
+                reserved_until:
+                  type: date
+                user_id:
+                  type: integer
+                car_id:
+                  type: integer
+              required:
+              - date
+              - reserved_from
+              - reserved_until
+              - user_id
+              - car_id
+  api/v1/reservations:
+    get:
+      summary: Retrieves all reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservation found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  date:
+                    type: date
+                  reserved_from:
+                    type: date
+                  reserved_until:
+                    type: date
+                  user_id:
+                    type: integer
+                  car_id:
+                    type: integer
+                required:
+                - date
+                - reserved_from
+                - reserved_until
+                - user_id
+                - car_id
+        '404':
+          description: reservation not found
+  api/v1/reservations/{id}:
+    get:
+      summary: Retrieves a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: reservation found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  date:
+                    type: date
+                  reserved_from:
+                    type: date
+                  reserved_until:
+                    type: date
+                  user_id:
+                    type: integer
+                  car_id:
+                    type: integer
+                required:
+                - date
+                - reserved_from
+                - reserved_until
+                - user_id
+                - car_id
+        '404':
+          description: reservation not found
+    delete:
+      summary: Deletes a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: reservation deleted
+        '404':
+          description: reservation not found
+  api/v1/users:
+    post:
+      summary: Creates a user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                encrypted_password:
+                  type: string
+                email:
+                  type: string
+                name:
+                  type: string
+              required:
+              - username
+    get:
+      summary: List All users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: users displayed
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
