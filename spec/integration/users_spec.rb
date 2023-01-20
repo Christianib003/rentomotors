@@ -38,32 +38,4 @@ RSpec.describe 'api/v1/users', type: :request do
       end
     end
   end
-
-  get 'Retrieves a user' do
-    tags 'Users'
-    produces 'application/json', 'application/xml'
-    parameter name: :id, in: :path, type: :integer
-
-    response '200', 'user found' do
-      schema type: :object,
-             properties: {
-              username: { type: :string },
-              encrypted_password: { type: :string },
-              email: { type: :string },
-              name: { type: :string },
-             },
-             required: %w[username]
-
-      let(:id) do
-        User.create(username: 'User').id
-      end
-      run_test!
-    end
-
-    response '404', 'user not found' do
-      let(:id) { 'invalid' }
-      run_test!
-    end
-  end
-end
 end
