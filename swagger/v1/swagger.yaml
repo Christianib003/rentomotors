@@ -354,6 +354,40 @@ paths:
           description: reservation deleted
         '404':
           description: reservation not found
+  api/v1/users:
+    post:
+      summary: Creates a user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                encrypted_password:
+                  type: string
+                email:
+                  type: string
+                name:
+                  type: string
+              required:
+              - username
+    get:
+      summary: List All users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: users displayed
 servers:
 - url: https://{defaultHost}
   variables:
