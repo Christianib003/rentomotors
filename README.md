@@ -95,3 +95,26 @@ To run the project, execute the following command:
  - `rails server`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHORS -->
+
+## 👥 Authors <a name="authors"></a>
+
+> Mention all of the collaborators of this project.
+
+👤 **Author1**
+
+- GitHub: [@Christianib003](https://github.com/Christianib003)
+- LinkedIn:  [@Christian Iradukunda Byiringiro](https://www.linkedin.com/in/christian-iradukunda/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B8F6ODWk4TBuOWR8C3JI4zQ%3D%3D)
+
+👤 **Author2**
+
+- GitHub: [@githubhandle](https://github.com/HabibPayenda)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/habibpayenda/)
+
+👤 **Author3**
+
+- GitHub: [@githubhandle](https://github.com/aceDavon)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/david-makoji-b6090971/)
+- LinkedIn: [LinkedIn](https://twitter.com/sharkleshevon)
+
