@@ -42,6 +42,7 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
         schema type: :object,
                properties: {
                 id: { type: :integer },
+                brand: { type: :string },
                 model: { type: :string },
                 release_year: { type: :integer },
                 color: { type: :string },
@@ -61,6 +62,35 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
       end
       response '404', 'car not found' do
         let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end
+
+  path '/api/v1/cars/{id}' do
+    delete 'Deletes a car' do
+      tags 'Cars'
+      produces 'application/json'
+      parameter name: :id, in: :path, type: :string
+      response '204', 'event deleted' do
+        let(:id) do
+          Event.create(
+          id: 1,
+          brand: 'vox',
+          model: 'wagen',
+          release_year: 2007,
+          color: 'grey',
+          transmission: 'manual',
+          price: 20000,
+          seats: 4,
+          wheel_drive: 'front', 
+          image_link: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+          r-2.jpeg?isig=0&q=80",
+          user_id: 1).id
+        end
+        let(:user_id) do
+          User.create(username: 'User').id
+        end
         run_test!
       end
     end
