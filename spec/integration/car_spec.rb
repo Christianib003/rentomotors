@@ -2,7 +2,7 @@ require 'swagger_helper'
 describe 'Car API' do
   path '/api/v1/cars' do
     post 'Creates a car' do
-      tags 'Car'
+      tags 'Cars'
       consumes 'application/json', 'application/xml'
       parameter name: :car, in: :body, schema: {
         type: :object,

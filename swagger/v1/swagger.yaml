@@ -8,7 +8,7 @@ paths:
     post:
       summary: Creates a car
       tags:
-      - Car
+      - Cars
       parameters: []
       responses:
         '201':
