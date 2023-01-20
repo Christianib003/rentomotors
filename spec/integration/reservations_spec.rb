@@ -90,4 +90,22 @@ RSpec.describe 'api/v1/reservations', type: :request do
       end
     end
   end
+
+  path 'api/v1/reservations/{id}' do
+    delete 'Deletes a reservation' do
+      tags 'Reservations'
+      parameter name: :id, in: :path, type: :string
+
+      response '204', 'reservation deleted' do
+        let(:id) do
+          Reservation.create(date: 2023-01-01, reserved_from: 2023-01-01, reserved_until: 2023-01-02, user_id: 1, car_id: 1).id
+        end
+        run_test!
+      end
+      response '404', 'reservation not found' do
+        let(:id) { 'invalid' }
+        run_test!
+      end
+    end
+  end
 end
