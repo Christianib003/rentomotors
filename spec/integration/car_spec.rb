@@ -128,4 +128,5 @@ r-2.jpeg?isig=0&q=80", model: 'benz', release_year: 1999, color: 'black', transm
         run_test!
       end
     end
+  end
 end
