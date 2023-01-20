@@ -23,3 +23,8 @@
 # 📖 [Rentomotors] <a name="Rentomotors"></a>
 
 > Rentomotors is an app that enables users to reserve cars for their personal benefits for a certain period of time.
+
+## Links
+
+- [React Frontend of this app](https://github.com/zemola/final-capstone-front-end)
+- [Api Documentation](https://rento-api.onrender.com/api-docs/index.html)
