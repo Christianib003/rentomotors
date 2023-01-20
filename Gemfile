@@ -51,4 +51,3 @@ gem 'devise'
 gem 'kaminari'
 gem 'rswag'
 gem 'rubocop'
-
