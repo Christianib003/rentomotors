@@ -114,9 +114,10 @@ To run the project, execute the following command:
 
 👤 **Author3**
 
-- GitHub: [@githubhandle](https://github.com/aceDavon)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/david-makoji-b6090971/)
-- LinkedIn: [LinkedIn](https://twitter.com/sharkleshevon)
+- GitHub: [@acedavon](https://github.com/acedavon)
+- Twitter: [@shakleshevon](https://twitter.com/sharkleshevon)
+- LinkedIn: [Makoji David](https://www.linkedin.com/in/makoji-david/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
